@@ -18,6 +18,9 @@ cosmos.pack(fill=BOTH,expand=1)
 angle=0
 
 class UI:
+"""
+Класс, в котором создаётся всё необходимое для вывода на экран информации о планете, после нажатия на, непосредственно планету.
+"""
     def __init__(self):
         pass
 
@@ -28,7 +31,7 @@ class UI:
         info.geometry('800x600')
         info.resizable(False, False)  # Запрет на изменение размера окна
         info.grab_set()
-        # info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
+        info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
         
     
         Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # Выводит имя планеты
@@ -38,14 +41,14 @@ class UI:
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=0)
         text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
     
        
-        text_name.insert(1.0,'                   МЕРКУРИЙ')
+        text_name.insert(1.0,'                   МЕРКУРИЙ')  # Непосредственно краткие характеристики планеты
         text_name.place(x=300,y=0)
         text_bok.insert(1.0,    '                                           Характеристики Меркурия\n' 
                                 'Меркурий является самой маленькой планетой Солнечной системы.\n'
@@ -79,7 +82,7 @@ class UI:
         info.geometry('800x600')
         info.resizable(False, False)  # Запрет на изменение размера окна
         info.grab_set()
-        # info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
+        info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
         
     
         Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # Выводит имя планеты
@@ -89,14 +92,14 @@ class UI:
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=50)
         text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
     
        
-        text_name.insert(1.0,'                   Венера')
+        text_name.insert(1.0,'                   Венера')  # Непосредственно краткие характеристики планеты
         text_name.place(x=300,y=0)
         text_bok.insert(1.0,    '                                           Характеристики Венеры\n' 
                                   'Температура на поверхности Венеры достигает 477°C.\n'
@@ -125,8 +128,7 @@ class UI:
         info.geometry('800x600')
         info.resizable(False, False)  # Запрет на изменение размера окна
         info.grab_set()
-        # info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
-        
+        info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
     
         Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # Выводит имя планеты
         Lab.pack(fill=BOTH,expand=1)
@@ -135,14 +137,14 @@ class UI:
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=50)
         text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
     
        
-        text_name.insert(1.0,'                   Земля')
+        text_name.insert(1.0,'                   Земля')  # Непосредственно краткие характеристики планеты
         text_name.place(x=300,y=0)
         text_bok.insert(1.0,    '                                           Характеристики Земли\n' 
                                   'Земля – пятая по размеру планета в Солнечной системе.\n'
@@ -168,8 +170,7 @@ class UI:
         info.geometry('800x600')
         info.resizable(False, False)  # Запрет на изменение размера окна
         info.grab_set()
-        # info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
-        
+        info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
     
         Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # Выводит имя планеты
         Lab.pack(fill=BOTH,expand=1)
@@ -178,14 +179,14 @@ class UI:
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=0)
         text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
     
        
-        text_name.insert(1.0,'                   Марс')
+        text_name.insert(1.0,'                   Марс')  # Непосредственно краткие характеристики планеты
         text_name.place(x=300,y=0)
         text_bok.insert(1.0,    '                                           Характеристики Марса\n' 
                                   'Марс – седьмая по размеру планета в Солнечной системе.\n'
@@ -212,7 +213,7 @@ class UI:
         info.geometry('800x600')
         info.resizable(False, False)  # Запрет на изменение размера окна
         info.grab_set()
-        # info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
+        info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
         
     
         Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # Выводит имя планеты
@@ -229,7 +230,7 @@ class UI:
                     state='normal')  # Задаем текст  с инфой о планете
     
        
-        text_name.insert(1.0,'                   Юпитер')
+        text_name.insert(1.0,'                   Юпитер')  # Непосредственно краткие характеристики планеты
         text_name.place(x=300,y=0)
         text_bok.insert(1.0,    '                                           Характеристики Юпитера\n' 
                                   'Юпитер – первая по размеру планета в Солнечной системе.\n'
@@ -248,13 +249,11 @@ class UI:
                         'Юпитеру нужно было стать в 80 раз массивнее.')
         text_niz.place(x=0,y=300)
 
-
     #def Saturn(event):  # Сатурн
         
     #def Uran(event):  # Уран
         
-    #def Neptun(event):  # Нептун
-        
+    #def Neptun(event):  # Нептун  
 
     def Sun(event):
         # Подготовка окна с информацией о планете
@@ -263,7 +262,7 @@ class UI:
         info.geometry('800x600')
         info.resizable(False, False)  # Запрет на изменение размера окна
         info.grab_set()
-        # info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
+        info.overrideredirect(True)# Удаляет обрамление окна, можно использовать
         
     
         Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # Выводит имя планеты
@@ -274,11 +273,11 @@ class UI:
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=0)
         text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
         text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
-                    state='normal')  # Задаем текст  с инфой о планете
+                    state='normal')  # Задаем текст с инфой о планете
     
        
         text_name.insert(1.0,'                   СОЛНЦЕ')
@@ -310,22 +309,19 @@ class UI:
                         ' Существуют миллиарды звезд, как наше Солнце, разбросанных по галактике Млечный Путь.')
         text_niz.place(x=0,y=300)
         
-     
-
-
-
-
-
-
-
-
-
 class planet():
+"""
+Класс для создания планет и Солнца, как объектов, которые имеют свои физические характеристики, необходимые для описания планеты и её движения по своей виртуальной орбите.
+Также здесь описано, на нажатие какой клавиши реагирует собственно планета или Солнце.
+"""
     def __init__(self):
         self.id = cosmos.create_oval(0,0,0,0)
         self.live=1
         
     def solnce(self):
+    """
+    Функция для создания Солнца.
+    """
         x=self.x=0
         y=self.y=708
         r=self.r=125
@@ -334,22 +330,25 @@ class planet():
         cosmos.create_text(self.x+24,self.y-10,text='солнце')
         cosmos.itemconfig(self.id, fill=color)
         cosmos.tag_bind(self.id, '<Button-1>', UI.Sun)
-      
         
     def mercury(self):
+    """
+    Функция для создания планеты (в данном случае Меркурия), аналогично создаются остальные планеты.
+    """
         x=self.x=0
         y=self.y=558
         r=self.r=26
-        self.xn=0 #  !!!начало координат!!!
-        self.yn=708 #!!! начало координат!!!
-        self.rv=165 #!!! собственный радиус вращения!!!
-        self.v=+1.0 # !!! скорость поворота 
+        self.xn=0   #начало координат (характерно для всех планет)
+        self.yn=708 #начало координат (характерно для всех планет)
+        self.rv=165 #собственный радиус вращения (характерно для всех планет)
+        self.v=+1.0 #скорость поворота (характерно для всех планет) 
         color=self.color="white"
         cosmos.coords(self.id, x-r, y-r, x+r, y+r)
         cosmos.itemconfig(self.id, fill=color) 
         self.name="меркурий"
         self.txt=cosmos.create_text(self.x,self.y,text=self.name)
         cosmos.tag_bind(self.id, '<Button-1>', UI.Mercury)
+        
     def venera(self):
         x=self.x=0
         y=self.y=558
@@ -379,6 +378,7 @@ class planet():
         self.name="земля"
         self.txt=cosmos.create_text(self.x,self.y,text=self.name)
         cosmos.tag_bind(self.id, '<Button-1>', UI.Earth)
+        
     def mars(self):
         x=self.x=342
         y=self.y=279
@@ -394,6 +394,7 @@ class planet():
         self.name="марс"
         self.txt=cosmos.create_text(self.x,self.y,text=self.name)
         cosmos.tag_bind(self.id, '<Button-1>', UI.Mars)
+        
     def jupiter(self):
         x=self.x=342
         y=self.y=279
@@ -408,6 +409,7 @@ class planet():
         self.name="юпитер"
         self.txt=cosmos.create_text(self.x,self.y,text=self.name)
         cosmos.tag_bind(self.id, '<Button-1>', UI.Yupiter)
+        
     def saturn(self):
         x=self.x=342
         y=self.y=279
@@ -449,9 +451,11 @@ class planet():
         cosmos.itemconfig(self.id, fill=color)
         self.name="нептун"
         self.txt=cosmos.create_text(self.x,self.y,text=self.name)
-             
         
     def set_coords(self):
+    """
+    Функция, которая задаёт перемещение планет.
+    """
         cosmos.coords(
                 self.id,
                 self.x - self.r,
@@ -461,6 +465,9 @@ class planet():
               )
 
     def move(self):
+    """
+    Функция, с помощью которой осуществляется движение планет.
+    """
             global angle
             angle+=0.01
             if angle>=360:
@@ -469,14 +476,12 @@ class planet():
             self.y =self.yn+ self.rv* math.cos(angle-self.v)
             cosmos.delete(self.txt)
             self.txt=cosmos.create_text(self.x,self.y,text=self.name) 
-            self.set_coords()   
+            self.set_coords() 
+            
     def focIn(event):
       okno=Frame(cosmos,width=100,height=558,bg="red")
       okno.pack(side=RIGHT,expand=1)
              
-    
-
-
 t1=planet()
 t2=planet()
 t3=planet()
@@ -486,8 +491,6 @@ t6=planet()
 t7=planet()
 t8=planet()
 t9=planet()
-
-
 
 def gotovo(event=''):
       global t1,t2,t3,t4,t5,t6,t7,t8,t9
@@ -502,10 +505,7 @@ def gotovo(event=''):
       t9.neptun()
       
       while t1.live:
-        
-        
           t2.move()
-          
           t3.move()
           t4.move()
           t5.move()
