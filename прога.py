@@ -1,3 +1,4 @@
+from random import randrange as rnd, choice
 import tkinter as tk
 from tkinter import*
 import math
@@ -180,7 +181,7 @@ class UI:
         info.title("Инфа по планетам")
         info.geometry('800x600')
         info.resizable(False, False)  
-        info.grab_set()
+       
         
         
     
@@ -223,7 +224,7 @@ class UI:
         info.title("Инфа по планетам")
         info.geometry('800x600')
         info.resizable(False, False)  
-        info.grab_set()
+        
         
         
     
@@ -311,7 +312,7 @@ class UI:
         info.title("Инфа по планетам")
         info.geometry('800x600')
         info.resizable(False, False)
-        info.grab_set()
+        
         
         Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  
         Lab.pack(fill=BOTH,expand=1)
@@ -407,7 +408,7 @@ class UI:
         info.title("Инфа по планетам")
         info.geometry('800x600')
         info.resizable(False, False)  
-        info.grab_set()
+        
         
         
     
@@ -657,4 +658,4 @@ def gotovo(event=''):
           t9.move()
           cosmos.update()
           time.sleep(0.069)
-gotovo()       
+gotovo()    
