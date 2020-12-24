@@ -15,8 +15,8 @@ fon = PhotoImage(file="Back.png")
 id_img= cosmos.create_image(0,0,anchor=NW,image=fon)
 
 cosmos.pack(fill=BOTH,expand=1)
-angle=0
-izmen=0
+angle=0 #угол
+izmen=0 #ускорение
 def speed():
        global izmen   
        izmen+=+0.001
