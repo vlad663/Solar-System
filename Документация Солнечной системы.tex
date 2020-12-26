@@ -165,9 +165,10 @@ class planet():
         cosmos.coords(self.id, x-r, y-r, x+r, y+r)
         cosmos.itemconfig(self.id, fill=color) 
         self.name="меркурий"
-        self.txt=cosmos.create_text(self.x,self.y,text=self.name) # создаем текст на планете
-        cosmos.tag_bind(self.id, '<Button-1>', UI.Mercury) # связываем окно с планетой по нажатию  лкм по планете
-
+        self.txt=cosmos.create_text(self.x,self.y,text=self.name) # создаем текст на 
+        планете
+        cosmos.tag_bind(self.id, '<Button-1>', UI.Mercury) # связываем окно с 
+        планетой по нажатию  лкм по планете
 \end{verbatim}
 Далее используется функция движения планеты.Она содержит две глобальные переменные angle(угол), и izmen(коэффициэнт ускорения),а которых мы говорили выше,в этой функции angle будет изменяться на 0.0013+izmen каждый раз.После того как угол становится больше 360, то angle обнуляется.Переменные х и у составляют уравнение окружности,благодаря ним проиходит смещение планеты.Также в функции происходит удаление старого текста с названием планеты, который расположен по старым координатам, и отрисовка нового.
 
@@ -177,9 +178,12 @@ class planet():
     angle+=0.0013+izmen      # угол изменяется на число каждый раз
     if angle>=360:           #если =360 то зануляем
             angle=0
-    self.x =self.xn+ self.rv* math.sin(angle-self.v)    # изменение координат планет в космосе 
-    self.y =self.yn+ self.rv* math.cos(angle-self.v)    # изменение координат планет в космосе
-    cosmos.delete(self.txt)                             #удаляем старое название планеты т.к нужно отрисовать в новом месте ( собст имя создали в функ )
+    self.x =self.xn+ self.rv* math.sin(angle-self.v)    # изменение координат планет 
+    в космосе 
+    self.y =self.yn+ self.rv* math.cos(angle-self.v)    # изменение координат планет 
+    в космосе
+    cosmos.delete(self.txt)                             #удаляем старое название 
+    планеты т.к нужно отрисовать в новом месте ( собст имя создали в функ )
     self.txt=cosmos.create_text(self.x,self.y,text=self.name) # рис новое имя
     self.set_coords()   
 \end{verbatim}
@@ -210,7 +214,8 @@ class planet():
 \end{verbatim}
 Далее создаем основной   Label размером с окно, на котором разместим маленький лэйбл для фото и несколько полей для ввода текста в которых будем описывать планету :
 \begin{verbatim}
-    Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # основной лэйбл - все окно
+    Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)
+    # основной лэйбл - все окно
         Lab.pack(fill=BOTH,expand=1)
     Lab.pack()
 \end{verbatim}
@@ -222,11 +227,14 @@ class planet():
 \end{verbatim}        
 Создаем  поля для текcта, в первом будем хранить название планеты, во втором ее характеристики, а в третьем просто интересную информацию
 \begin{verbatim}
-    text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+    text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, 
+    font='Arial 25', wrap='word',
                     state='normal')                 # поле для имени
-    text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+    text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, 
+    font='Arial 10', wrap='word',
                     state='normal')                  # поле для характеристик
-    text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+    text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, 
+    height=200, font='Arial 11', wrap='word',
                     state='normal')           
 \end{verbatim}
 
@@ -236,28 +244,40 @@ class planet():
     text_name.insert(1.0,'                   МЕРКУРИЙ')
     text_name.place(x=300,y=0)#положение имени
     text_bok.insert(1.0,    '           Характеристики Меркурия\n' 
-                                'Меркурий является самой маленькой планетой Солнечной системы.\n'
-                                'Радиус Меркурия составляет всего 2440 километров (38% радиуса Земли)\n'
-                                'Температура на поверхности Меркурия колеблется от −190°C до +430°C.\n'
-                                'Солнечная сторона нагревается гораздо больше, чем полярные области и\n'
+                                'Меркурий является самой маленькой планетой 
+                                Солнечной системы.\n'
+                                'Радиус Меркурия составляет всего 2440 километров 
+                                (38% радиуса Земли)\n'
+                                'Температура на поверхности Меркурия колеблется от 
+                                −190°C до +430°C.\n'
+                                'Солнечная сторона нагревается гораздо больше, 
+                                чем полярные области и\n'
                                 'обратная сторона планеты.\n'
-                                'Меркурий обладает магнитным полем, напряженность которого примерно\n' 
+                                'Меркурий обладает магнитным полем, напряженность 
+                                которого примерно\n' 
                                 'в 100 раз меньше земного.\n'
-                                'Меркурий вторая по плотности (после Земли) планета в Солнечной\n'
+                                'Меркурий вторая по плотности (после Земли) планета 
+                                в Солнечной\n'
                                 'системе.\n'
-                                'Ускорение свободного падения на Меркурии равно 3,7 м/c^2 \n'
-                                'Площадь поверхности Меркурия составляет 74 797 000 км^2\n' 
+                                'Ускорение свободного падения на Меркурии равно 3,7 
+                                м/c^2 \n'
+                                'Площадь поверхности Меркурия составляет 74 797 000 
+                                км^2\n' 
                                 'Масса Меркурия равна 3,3010 х 1023 килограмма')
         
         
     text_bok.place(x=300,y=71) # расположение хар-к        
-    text_niz.insert(1.0,'\n\n \nВыжженный Солнцем Меркурий лишь немного больше, чем спутник Земли Луна.\n'
-                        'Подобно Луне, Меркурий практически лишен атмосферы и не может сгладить следы воздействия от падения\n' 
+    text_niz.insert(1.0,'\n\n \nВыжженный Солнцем Меркурий лишь немного больше, чем 
+    спутник Земли Луна.\n'
+                        'Подобно Луне, Меркурий практически лишен атмосферы и не 
+                        может сгладить следы воздействия от падения\n' 
                         'метеоритов, поэтому он как и Луна покрыт кратерами.\n'
-                        'Дневная сторона Меркурия очень сильно нагревается на Солнце, а на ночной стороне температура падает \n'
-                        'на сотни градусов ниже нуля. В кратерах Меркурия, которые расположены на полюсах, существует лед.\n'
+                        'Дневная сторона Меркурия очень сильно нагревается на 
+                        Солнце, а на ночной стороне температура падает \n'
+                        'на сотни градусов ниже нуля. В кратерах Меркурия, которые 
+                        расположены на полюсах, существует лед.\n'
                         'Меркурий совершает один оборот вокруг Солнца за 88 дней.')
-    text_niz.place(x=0,y=300) # расположение ин инфы  
+    text_niz.place(x=0,y=300) # расположение инфы  
 \end{verbatim}
  
 \newpage
@@ -266,7 +286,6 @@ class planet():
 class UI:
     def __init__(self):
         pass
-
     def Mercury(event):  # Меркурий
         # Подготовка окна с информацией о планете
         info = Toplevel(root, width=800, height=600) # окно
@@ -277,43 +296,60 @@ class UI:
         
         
     
-        Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # основной лэйбл - все окно
+        Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,
+        height=600)  # основной лэйбл - все окно
         Lab.pack(fill=BOTH,expand=1)
         global photo
         photo = PhotoImage(file="MERK.png")         # сама картинка
         img = Label(Lab,image = photo, bg='black') # вставляем картинку
         img.place(x=0,y=0)                          # местоположений
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, 
+        height=50, font='Arial 25', wrap='word',
                     state='normal')                 # поле для имени
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, 
+        height=200, font='Arial 10', wrap='word',
                     state='normal')                  # поле для характеристик
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, 
+        height=200, font='Arial 11', wrap='word',
                     state='normal')                 # интересн инфа
     
        
         text_name.insert(1.0,'                   МЕРКУРИЙ')
         text_name.place(x=300,y=0)#положение имени
-        text_bok.insert(1.0,    '                                           Характеристики Меркурия\n' 
-                                'Меркурий является самой маленькой планетой Солнечной системы.\n'
-                                'Радиус Меркурия составляет всего 2440 километров (38% радиуса Земли)\n'
-                                'Температура на поверхности Меркурия колеблется от −190°C до +430°C.\n'
-                                'Солнечная сторона нагревается гораздо больше, чем полярные области и\n'
+        text_bok.insert(1.0,    '                                           
+        Характеристики Меркурия\n' 
+                                'Меркурий является самой маленькой планетой 
+                                Солнечной системы.\n'
+                                'Радиус Меркурия составляет всего 2440 километров 
+                                (38% радиуса Земли)\n'
+                                'Температура на поверхности Меркурия колеблется от 
+                                −190°C до +430°C.\n'
+                                'Солнечная сторона нагревается гораздо больше, чем 
+                                полярные области и\n'
                                 'обратная сторона планеты.\n'
-                                'Меркурий обладает магнитным полем, напряженность которого примерно\n' 
+                                'Меркурий обладает магнитным полем, напряженность 
+                                которого примерно\n' 
                                 'в 100 раз меньше земного.\n'
-                                'Меркурий вторая по плотности (после Земли) планета в Солнечной\n'
+                                'Меркурий вторая по плотности (после Земли) планета 
+                                в Солнечной\n'
                                 'системе.\n'
-                                'Ускорение свободного падения на Меркурии равно 3,7 м/c^2 \n'
-                                'Площадь поверхности Меркурия составляет 74 797 000 км^2\n' 
+                                'Ускорение свободного падения на Меркурии равно 3,7
+                                м/c^2 \n'
+                                'Площадь поверхности Меркурия составляет 74 797 000 
+                                км^2\n' 
                                 'Масса Меркурия равна 3,3010 х 1023 килограмма')
         
         
         text_bok.place(x=300,y=71) # расположение хар-к        
-        text_niz.insert(1.0,'\n\n \nВыжженный Солнцем Меркурий лишь немного больше, чем спутник Земли Луна.\n'
-                        'Подобно Луне, Меркурий практически лишен атмосферы и не может сгладить следы воздействия от падения\n' 
+        text_niz.insert(1.0,'\n\n \nВыжженный Солнцем Меркурий лишь немного больше, 
+        чем спутник Земли Луна.\n'
+                        'Подобно Луне, Меркурий практически лишен атмосферы и не 
+                        может сгладить следы воздействия от падения\n' 
                         'метеоритов, поэтому он как и Луна покрыт кратерами.\n'
-                        'Дневная сторона Меркурия очень сильно нагревается на Солнце, а на ночной стороне температура падает \n'
-                        'на сотни градусов ниже нуля. В кратерах Меркурия, которые расположены на полюсах, существует лед.\n'
+                        'Дневная сторона Меркурия очень сильно нагревается на 
+                        Солнце, а на ночной стороне температура падает \n'
+                        'на сотни градусов ниже нуля. В кратерах Меркурия, которые 
+                        расположены на полюсах, существует лед.\n'
                         'Меркурий совершает один оборот вокруг Солнца за 88 дней.')
         text_niz.place(x=0,y=300) # расположение ин инфы
 \end{verbatim}
@@ -355,11 +391,8 @@ root = tk.Tk()
 root.geometry('1199x756')
 root.resizable(width=False, height=False)
 cosmos=Canvas(root, width=1199,height=756)
-
 fon = PhotoImage(file="Back.png")
-
 id_img= cosmos.create_image(0,0,anchor=NW,image=fon)
-
 cosmos.pack(fill=BOTH,expand=1)
 angle=0
 izmen=0
@@ -381,11 +414,9 @@ button = tk.Button(root,
 )
  
 button.place(x=1030,y=300)
-
 class UI:
     def __init__(self):
         pass
-
     def Mercury(event):  # Меркурий
         # Подготовка окна с информацией о планете
         info = Toplevel(root, width=800, height=600) # окно
@@ -396,17 +427,21 @@ class UI:
         
         
     
-        Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # основной лэйбл - все окно
+        Lab = Label(info, bg='black', fg='white', font='Arial 25',width=800,height=600)  # основной лэйбл - все 
+        окно
         Lab.pack(fill=BOTH,expand=1)
         global photo
         photo = PhotoImage(file="MERK.png")         # сама картинка
         img = Label(Lab,image = photo, bg='black') # вставляем картинку
         img.place(x=0,y=0)                          # местоположений
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')                 # поле для имени
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')                  # поле для характеристик
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')                 # интересн инфа
     
        
@@ -429,10 +464,13 @@ class UI:
         
         text_bok.place(x=300,y=71) # расположение хар-к        
         text_niz.insert(1.0,'\n\n \nВыжженный Солнцем Меркурий лишь немного больше, чем спутник Земли Луна.\n'
-                        'Подобно Луне, Меркурий практически лишен атмосферы и не может сгладить следы воздействия от падения\n' 
+                        'Подобно Луне, Меркурий практически лишен атмосферы и не может сгладить следы 
+                        воздействия от падения\n' 
                         'метеоритов, поэтому он как и Луна покрыт кратерами.\n'
-                        'Дневная сторона Меркурия очень сильно нагревается на Солнце, а на ночной стороне температура падает \n'
-                        'на сотни градусов ниже нуля. В кратерах Меркурия, которые расположены на полюсах, существует лед.\n'
+                        'Дневная сторона Меркурия очень сильно нагревается на Солнце, а на ночной стороне 
+                        температура падает \n'
+                        'на сотни градусов ниже нуля. В кратерах Меркурия, которые расположены на полюсах, 
+                        существует лед.\n'
                         'Меркурий совершает один оборот вокруг Солнца за 88 дней.')
         text_niz.place(x=0,y=300) # расположение ин инфы  
                                               
@@ -453,11 +491,14 @@ class UI:
         photo = PhotoImage(file="ven.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=50)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')  
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  
     
        
@@ -474,13 +515,15 @@ class UI:
                                   'Венера обладает самой плотной атмосферой среди всех планет земной группы.')    
         
         text_bok.place(x=300,y=71)        
-        text_niz.insert(1.0,'\n\n \nВенера это мир чудовищной жары (еще больше чем на Меркурии) и вулканической активности.\n'
-                            'Аналогичная по структуре и размеру Земле, Венера покрыта толстой и токсичной атмосферой,которая\n'
-                            'создает сильный парниковый эффект. Этот выжженной мир достаточно горячий, чтобы расплавить свинец.\n'
+        text_niz.insert(1.0,'\n\n \nВенера это мир чудовищной жары (еще больше чем на Меркурии) и вулканической 
+        активности.\n'
+                            'Аналогичная по структуре и размеру Земле, Венера покрыта толстой и токсичной 
+                            атмосферой,которая\n'
+                            'создает сильный парниковый эффект. Этот выжженной мир достаточно горячий, чтобы 
+                            расплавить свинец.\n'
                             'Радарные снимки сквозь могучую атмосферу выявили вулканы и деформированные горы.\n'
                             'Венера вращается в противоположном направлении, от вращения большинства планет.')
         text_niz.place(x=0,y=300)
-
     def Earth(event):  
         info = Toplevel(root, width=800, height=600)
         info.title("Инфа по планетам")
@@ -495,11 +538,14 @@ class UI:
         photo = PhotoImage(file="zemlya.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=50)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')  # Задаем текст  с инфой о планете
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  # Задаем текст  с инфой о планете
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  # Задаем текст  с инфой о планете
     
        
@@ -515,13 +561,15 @@ class UI:
                                   'Масса Земли равна 5,9726 х 1024 килограмма.')    
         
         text_bok.place(x=300,y=71)        
-        text_niz.insert(1.0,'\n\n \nЗемля — планета океан. Наш дом, с его обилием воды и жизни делает его уникальным, в нашей Солнечной\n' 
+        text_niz.insert(1.0,'\n\n \nЗемля — планета океан. Наш дом, с его обилием воды и жизни делает его 
+        уникальным, в нашей Солнечной\n' 
                         'системе Земля занимает особое место.\n'
-                        'Другие планеты, в том числе несколько лун, также имеют залежи льда, атмосферу, времена года и даже погоду,\n'
-                        'но только на Земле все эти компоненты собрались вместе таким образом, что стало возможным существование \n' 
+                        'Другие планеты, в том числе несколько лун, также имеют залежи льда, атмосферу, времена 
+                        года и даже погоду,\n'
+                        'но только на Земле все эти компоненты собрались вместе таким образом, что стало 
+                        возможным существование \n' 
                         'жизни.')
         text_niz.place(x=0,y=300)
-
     def Mars(event):  
         info = Toplevel(root, width=800, height=600)
         info.title("Инфа по планетам")
@@ -537,11 +585,14 @@ class UI:
         photo = PhotoImage(file="mars.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=0)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')  # Задаем текст  с инфой о планете
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  # Задаем текст  с инфой о планете
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  # Задаем текст  с инфой о планете
     
        
@@ -556,15 +607,20 @@ class UI:
                                  'Ускорение свободного падения на Марсе равно 3,711 м/c^2 \n'
                                  'Масса Марса равна 6,4171 х 1023 килограмма')
         text_bok.place(x=300,y=71)        
-        text_niz.insert(1.0,'\n\n \nХотя детали поверхности Марса трудно увидеть с Земли, наблюдения в телескоп показывают,что на Марсе\n'
-                        'существуют сезоны и белые пятна на полюсах. В течение многих десятилетий,люди полагали,что яркие\n'
-                        'и темные области на Марсе это пятна растительности и что Марс может быть подходящим местом для жизни,\n'
+        text_niz.insert(1.0,'\n\n \nХотя детали поверхности Марса трудно увидеть с Земли, наблюдения в телескоп 
+        показывают,что на Марсе\n'
+                        'существуют сезоны и белые пятна на полюсах. В течение многих десятилетий,люди полагали,
+                        что яркие\n'
+                        'и темные области на Марсе это пятна растительности и что Марс может быть подходящим 
+                        местом для жизни,\n'
                         'и что вода существует в полярных шапках.\n'
-                        'Когда космический аппарат Маринер-4, прилетел у Марсу в 1965 году, многие из ученых были потрясены,\n'
-                        'увидев фотографии мрачной планеты покрытой кратерами. Марс оказался мертвой планетой.\n'
-                        'Более поздние миссии, однако, показали, что Марс хранит множество тайн, которые еще предстоит решить.')
+                        'Когда космический аппарат Маринер-4, прилетел у Марсу в 1965 году, многие из ученых 
+                        были потрясены,\n'
+                        'увидев фотографии мрачной планеты покрытой кратерами. Марс оказался мертвой 
+                        планетой.\n'
+                        'Более поздние миссии, однако, показали, что Марс хранит множество тайн, которые еще 
+                        предстоит решить.')
         text_niz.place(x=0,y=300)
-
     def Yupiter(event): 
         info = Toplevel(root, width=800, height=600)
         info.title("Инфа по планетам")
@@ -580,11 +636,14 @@ class UI:
         photo = PhotoImage(file="yupi.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=50)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')  
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  
     
        
@@ -601,13 +660,13 @@ class UI:
                                   'Ускорение свободного падения на Юпитера равно 24,79 м/c^2 \n'
                                   'Масса Юпитера равна 1,8986 х 1027 килограмм')
         text_bok.place(x=300,y=71)        
-        text_niz.insert(1.0,'\n\n \nЮпитер — самая массивная планета в нашей Солнечной системе, имеет четыре больших спутника и множество\n'
+        text_niz.insert(1.0,'\n\n \nЮпитер — самая массивная планета в нашей Солнечной системе, имеет четыре 
+        больших спутника и множество\n'
                         'небольших лун.\n'
-                        'Юпитер образует своего рода миниатюрную Солнечную систему. Чтобы превратится в полноценную звезду,\n'
+                        'Юпитер образует своего рода миниатюрную Солнечную систему. Чтобы превратится в 
+                        полноценную звезду,\n'
                         'Юпитеру нужно было стать в 80 раз массивнее.')
         text_niz.place(x=0,y=300)
-
-
     def Saturn(event): 
         info = Toplevel(root, width=800, height=600)
         info.title("Инфа по планетам")
@@ -621,11 +680,14 @@ class UI:
         photo = PhotoImage(file="saturn.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=0)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')  
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  
     
        
@@ -646,9 +708,12 @@ class UI:
         text_bok.place(x=300,y=71)        
         
         
-        text_niz.insert(1.0,'\n\n \nСатурн — самая дальняя из пяти планет, которые были известны до изобретения телескопа. Подобно Юпитеру,\n'
-                         'Сатурн состоит в основном из водорода и гелия. Его объем в 755 раз больше, чем у Земли. Ветры в его атмосфере\n'
-                         'достигают скорости 500 метров в секунду. Эти быстрые ветра в сочетании с теплом, поднимающимся из недр\n' 
+        text_niz.insert(1.0,'\n\n \nСатурн — самая дальняя из пяти планет, которые были известны до изобретения 
+        телескопа. Подобно Юпитеру,\n'
+                         'Сатурн состоит в основном из водорода и гелия. Его объем в 755 раз больше, чем у 
+                         Земли. Ветры в его атмосфере\n'
+                         'достигают скорости 500 метров в секунду. Эти быстрые ветра в сочетании с теплом, 
+                         поднимающимся из недр\n' 
                          'планеты,вызывают появление желтых и золотистых полос, которые мы видим в атмосфере.')
         text_niz.place(x=0,y=300)
         
@@ -667,11 +732,14 @@ class UI:
         photo = PhotoImage(file="uran.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=20)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal') 
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  
     
        
@@ -695,9 +763,11 @@ class UI:
         text_bok.place(x=300,y=71)        
         
         
-        text_niz.insert(1.0,'\n\n \nСпутников у него гораздо меньше, чем у соседнего Сатурна, всего 27. Наиболее известны Титания, Ариэль,\n'
+        text_niz.insert(1.0,'\n\n \nСпутников у него гораздо меньше, чем у соседнего Сатурна, всего 27. 
+        Наиболее известны Титания, Ариэль,\n'
                         'Оберон, Умбриэль и Миранда. Они не настолько крупны, как спутники.\n'
-                        'Примечательно, что ведя наблюдения за Ураном в свой телескоп, астроном Уильям Гершель сначала не понял,\n'
+                        'Примечательно, что ведя наблюдения за Ураном в свой телескоп, астроном Уильям Гершель 
+                        сначала не понял,\n'
                         'что он наблюдает за планетой, будучи уверен, что он видит комету.')
         text_niz.place(x=0,y=300) 
         
@@ -715,11 +785,14 @@ class UI:
         photo = PhotoImage(file="neptun.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=20)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')  
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  
     
        
@@ -742,9 +815,12 @@ class UI:
         text_bok.place(x=300,y=71)        
         
         
-        text_niz.insert(1.0,'\n\n \nПо сравнению с остальными планетами-гигантами спутников у него совсем мало – всего 14. Самые известные\n'
-                        'из них – Тритон, третий в солнечной системе спутник, имеющий атмосферу, Протей и Нереида.\n'
-                        'Примечательно, что это – единственная из планет, которая была открыта не благодаря наблюдениям, а с\n'
+        text_niz.insert(1.0,'\n\n \nПо сравнению с остальными планетами-гигантами спутников у него совсем 
+        мало – всего 14. Самые известные\n'
+                        'из них – Тритон, третий в солнечной системе спутник, имеющий атмосферу, Протей и 
+                        Нереида.\n'
+                        'Примечательно, что это – единственная из планет, которая была открыта не благодаря 
+                        наблюдениям, а с\n'
                         'помощью математических расчётов.')
         text_niz.place(x=0,y=300)
     
@@ -765,11 +841,14 @@ class UI:
         photo = PhotoImage(file="solnce.png")
         img = Label(Lab,image = photo, bg='black')
         img.place(x=0,y=0)
-        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', wrap='word',
+        text_name=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=50, font='Arial 25', 
+        wrap='word',
                     state='normal')  
-        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', wrap='word',
+        text_bok=Text(Lab, bg='black', fg='white', borderwidth=0, width=300, height=200, font='Arial 10', 
+        wrap='word',
                     state='normal')  
-        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', wrap='word',
+        text_niz = Text(Lab, bg='black', fg='white', borderwidth=0, width=700, height=200, font='Arial 11', 
+        wrap='word',
                     state='normal')  
     
        
@@ -794,7 +873,8 @@ class UI:
         text_bok.place(x=300,y=71)        
         
         
-        text_niz.insert(1.0,'\n\n \n Солнце является звездой, которая представляет собой горячий шар из раскаленных газов в центре нашей \n'
+        text_niz.insert(1.0,'\n\n \n Солнце является звездой, которая представляет собой горячий шар из 
+        раскаленных газов в центре нашей \n'
                         ' Солнечной системы.\n' 
                         ' Его влияние простирается далеко за пределы орбит Нептуна и Плутона.\n' 
                         ' Без Солнца и его интенсивной энергии и тепла, не было бы жизни на Земле.\n'
@@ -802,15 +882,6 @@ class UI:
         text_niz.place(x=0,y=300)
         
      
-
-
-
-
-
-
-
-
-
 class planet():
     def __init__(self):
         self.id = cosmos.create_oval(0,0,0,0)
@@ -840,7 +911,8 @@ class planet():
         cosmos.itemconfig(self.id, fill=color) 
         self.name="меркурий"
         self.txt=cosmos.create_text(self.x,self.y,text=self.name) # создаем текст на планете
-        cosmos.tag_bind(self.id, '<Button-1>', UI.Mercury) # связываем окно с планетой по нажатию  лкм по планете
+        cosmos.tag_bind(self.id, '<Button-1>', UI.Mercury) # связываем окно с планетой по нажатию  лкм по 
+        планете
     def venera(self):
         x=self.x=0
         y=self.y=558
@@ -958,7 +1030,8 @@ class planet():
                 angle=0
             self.x =self.xn+ self.rv* math.sin(angle-self.v)    # изменение координат планет в космосе 
             self.y =self.yn+ self.rv* math.cos(angle-self.v)    # изменение координат планет в космосе
-            cosmos.delete(self.txt)                             #удаляем старое название планеты т.к нужно отрисовать в новом месте ( собст имя создали в функ )
+            cosmos.delete(self.txt)                             #удаляем старое название планеты т.к нужно 
+            отрисовать в новом месте ( собст имя создали в функ )
             self.txt=cosmos.create_text(self.x,self.y,text=self.name) # рис новое имя 
             self.set_coords()   
   
@@ -973,9 +1046,6 @@ t6=planet()
 t7=planet()
 t8=planet()
 t9=planet()
-
-
-
 def gotovo(event=''):
       global t1,t2,t3,t4,t5,t6,t7,t8,t9
       t1.solnce()
